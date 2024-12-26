@@ -34,6 +34,7 @@ Below is short explanation of remaining files in the project folder.
 |   └── app_main.c
 ├── partitions.csv             partition table      
 ├── Makefile                   Makefile used by legacy GNU Make
+├── sdkconfig.defaults         Default configuration file
 └── README.md                  This is the file you are currently reading
 ```
 
