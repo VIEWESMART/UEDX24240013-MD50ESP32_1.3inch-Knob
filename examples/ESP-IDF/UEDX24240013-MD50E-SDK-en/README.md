@@ -1,8 +1,7 @@
-# Hello World Example
+# ESP-IDF Example
 
-Starts a FreeRTOS task to print "Hello World".
+Starts a FreeRTOS task to following screen is displayed.
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
 
 ## How to use example
 
@@ -16,7 +15,7 @@ Select the instructions depending on Espressif chip installed on your developmen
 
 ## Example folder contents
 
-The project **hello_world** contains one source file in C language [hello_world_main.c](main/hello_world_main.c). The file is located in folder [main](main).
+The project contains one source file in C language [app_main.c](main/app_main.c). The file is located in folder [main](main).
 
 ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt` files that provide set of directives and instructions describing the project's source files and targets (executable, library, or both). 
 
@@ -24,11 +23,16 @@ Below is short explanation of remaining files in the project folder.
 
 ```
 ├── CMakeLists.txt
-├── example_test.py            Python script used for automated example testing
+├── components                 Custom dependent components        
 ├── main
+|   ├── ui                     UI folder
 │   ├── CMakeLists.txt
 │   ├── component.mk           Component make file
-│   └── hello_world_main.c
+|   ├── idf_component.yml      Rely on component pull management
+│   ├── lvgl_port.h
+|   ├── lvgl_port.c
+|   └── app_main.c
+├── partitions.csv             partition table      
 ├── Makefile                   Makefile used by legacy GNU Make
 └── README.md                  This is the file you are currently reading
 ```
