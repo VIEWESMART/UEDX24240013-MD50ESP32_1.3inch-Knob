@@ -52,9 +52,7 @@
 #include <ESP_Panel_Library.h>
 #include <lvgl.h>
 #include "lvgl_port_v8.h"
-#include <ESP_Knob.h>
-#include <Button.h>
-#include <ui.h>
+
 /**
 /* To use the built-in examples and demos of LVGL uncomment the includes below respectively.
  * You also need to copy `lvgl/examples` to `lvgl/src/examples`. Similarly for the demos `lvgl/demos` to `lvgl/src/demos`.
@@ -71,12 +69,17 @@
 #define GPIO_NUM_KNOB_PIN_B     6
 #define GPIO_BUTTON_PIN         GPIO_NUM_9
 #endif
-ESP_Knob *knob;
+
 
 
 /*Initialize UI start*/
 /*Initialize UI end*/
+#ifdef KNOB
+#include <ESP_Knob.h>
+#include <Button.h>
+#include <ui.h>
 
+ESP_Knob *knob;
 void onKnobLeftEventCallback(int count, void *usr_data)
 {
     Serial.printf("Detect left event, count is %d\n", count);
@@ -109,6 +112,7 @@ static void LongPressStartCb(void *button_handle, void *usr_data) {
     LVGL_button_event((void*)BUTTON_LONG_PRESS_START);
     lvgl_port_unlock();
 }
+#endif
 
 void setup()
 {
@@ -144,6 +148,7 @@ void setup()
 #endif
     panel->begin();
 
+#ifdef KNOB
     Serial.println("Initialize Knob device");
     knob = new ESP_Knob(GPIO_NUM_KNOB_PIN_A, GPIO_NUM_KNOB_PIN_B);
     knob->begin();
@@ -156,6 +161,7 @@ void setup()
     btn->attachSingleClickEventCb(&SingleClickCb, NULL);
     btn->attachDoubleClickEventCb(&DoubleClickCb, NULL);
     btn->attachLongPressStartEventCb(&LongPressStartCb, NULL);
+#endif
 
     Serial.println("Initialize LVGL");
     lvgl_port_init(panel->getLcd(), panel->getTouch());
