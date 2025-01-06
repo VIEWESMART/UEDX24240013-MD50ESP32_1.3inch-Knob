@@ -24,13 +24,13 @@
 ## Version iteration:
 |   Development board Version   |  Screen size   |   Resolution  | Update date        |Update description|
 | :-------------------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |:-------------------------------: |
-| UEDX48480021-MD80E | 2.1-inch |  480*480  |2024-07-23      | Original version   |
+| UEDX24240013-MD50E | 1.3-inch |  240*240  |2024-07-23      | Original version   |
 
 ## PurchaseLink
 
 | Product                     | SOC           |  FLASH  |  RAM   | Link                   |
 | :------------------------: | :-----------: |:-------: | :---------: | :------------------: |
-| UEDX48480021-MD80E   | ESP32c3 |   4M   | 400KB | [VIEWE Mall](https://viewedisplay.com/product/esp32-7-inch-800x480-rgb-ips-tft-display-touch-screen-arduino-lvgl-uart/)  |
+| UEDX24240013-MD50E   | ESP32c3 |   4M   | 400KB | [VIEWE Mall](https://viewedisplay.com/product/esp32-7-inch-800x480-rgb-ips-tft-display-touch-screen-arduino-lvgl-uart/)  |
 
 ## Directory
 - [Describe](#describe)
