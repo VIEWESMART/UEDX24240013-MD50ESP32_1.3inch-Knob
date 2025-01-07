@@ -186,23 +186,23 @@ UEDX24240013-MD50ESP32_1.3inch-Knob-Display is a development board with square 1
 
 ## Schematic
 <p align="center" width="100%">
-    <img src="Schematic/MD80E.SCH.20240725_00.png" alt="example">
+    <img src="Schematic/1.3.png" alt="example">
 </p>
 
 ## Information
-[products specification](information/UEDX80480070E-WB-A%20V2.0%20SPEC.pdf)
+[products specification](information/UEDX24240013-MD50E%20V3.3%20SPEC.pdf)
 
-[Display Datasheet](information/ALL-UE070WV-RB40-A092A.pdf)
+[Display Datasheet](information/UE013QV-RH13-A003B.pdf)
 
-[button](information/C2843785_RGB%2BLED(Built-in%20IC)_XL-5050RGBC-WS2812B_specification_WJ1123912.PDF)
+[button](information/6x6Silent%20switch.pdf)
 
-[Encoder](information/C84681_USB%20Conversion%20chip_CH340C_specification_WJ1187874.PDF)
+[Encoder](information/EC110101R6D-HA1-011%20YBGW080.pdf)
 
 ## DependentLibraries
 * [ESP32_Display_Panel>0.2.1](https://github.com/esp-arduino-libs/ESP32_Display_Panel) (Please [download](./Libraries/ESP32_Display_Panel) the library first as the latest version has not been released yet)
 * [ESP32_IO_Expander](https://github.com/esp-arduino-libs/ESP32_IO_Expander) (Please [download](./Libraries/ESP32_IO_Expander) the library first as the latest version has not been released yet)
-* [NTPClient-3.2.1](https://github.com/bitbank2/JPEGDEC)
-* [ArduinoJson-6.21.3](https://github.com/bblanchon/ArduinoJson.git)
+* [ESP32_Button](https://github.com/esp-arduino-libs/ESP32_Button)
+* [ESP32_Knob](https://github.com/esp-arduino-libs/ESP32_Knob)
 * [lvgl-8.4.0](https://lvgl.io)
 
 
