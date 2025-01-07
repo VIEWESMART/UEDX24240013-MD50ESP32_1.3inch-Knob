@@ -37,23 +37,19 @@ Copy the [ui](./libraries/ui/) folder from `libraries` to [Arduino Library direc
 
 
 6. Navigate to the `Tools` menu in the Arduino IDE to choose a ESP board and configure its parameters.
-    | Setting                               | Value                                 |
-    | :-------------------------------: | :-------------------------------: |
-    | Board                                 | ESP32S3 Dev Module           |
-    | CPU Frequency                   | 240MHz (WiFi)                    |
-    | Core Debug Level                | None                                 |
-    | USB CDC On Boot                | Disabled                              |
-    | USB DFU On Boot                | Disabled                             |
-    | Events Run On                     | Core 1                               |  
-    | Flash Mode                         | QIO 80MHz                         |
-    | Flash Size                           | 16MB (128Mb)                    |
-    | Arduino Runs On                  | Core 1                               |
-    | USB Firmware MSC On Boot | Disabled                             |
-    | Partition Scheme                | 16M Flash (3MB APP/9.9MB FATFS) |
-    | PSRAM                                | OPI PSRAM                         |
-    | Upload Mode                     |     UART0/Hardware CDC            |
-    | Upload Speed                     | 921600                               |
-    | USB Mode                           | Hardware CDC and JTAG     |
+     | Setting                               | Value                                 |
+     | :-------------------------------: | :-------------------------------: |
+     | Board                                 | ESP32S3 Dev Module           |
+     | CPU Frequency                   | 160MHz (WiFi)                    |
+     | Core Debug Level                | None                                 |
+     | USB CDC On Boot                | Disabled                              |
+     | Erase All Flash Before Sketch Upload                | Disabled                             |
+     | Flash Frequency                     | 80MHz                               |  
+     | Flash Mode                         | QIO                          |
+     | Flash Size                           | 4MB (32Mb)                    |
+     | JTAG Adapter                 | Disabled                               |
+     | Partition Scheme                | Huge APP |
+     | Upload Speed                     | 921600                               |
 7. Verify and upload the example to your ESP board.
 8. If burning fails Please hold down the "BOOT" button and try downloading the program again.
 
