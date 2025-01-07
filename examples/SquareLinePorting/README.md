@@ -32,10 +32,11 @@ Follow the steps below to configure:
     - Modify the macros in the [lvgl_port_v8.h](./lvgl_port_v8.h) file to configure the LVGL porting parameters.
 
 4. For **ui**:
+   
 Copy the [ui](./libraries/ui/) folder from `libraries` to [Arduino Library directory](../../../../README.md#where-is-the-directory-for-arduino-libraries).Here I have put ui into the libraries.
 
 
-5. Navigate to the `Tools` menu in the Arduino IDE to choose a ESP board and configure its parameters.
+6. Navigate to the `Tools` menu in the Arduino IDE to choose a ESP board and configure its parameters.
     | Setting                               | Value                                 |
     | :-------------------------------: | :-------------------------------: |
     | Board                                 | ESP32S3 Dev Module           |
@@ -53,8 +54,8 @@ Copy the [ui](./libraries/ui/) folder from `libraries` to [Arduino Library direc
     | Upload Mode                     |     UART0/Hardware CDC            |
     | Upload Speed                     | 921600                               |
     | USB Mode                           | Hardware CDC and JTAG     |
-6. Verify and upload the example to your ESP board.
-7. If burning fails Please hold down the "BOOT" button and try downloading the program again.
+7. Verify and upload the example to your ESP board.
+8. If burning fails Please hold down the "BOOT" button and try downloading the program again.
 
 ## Serial Output
 
