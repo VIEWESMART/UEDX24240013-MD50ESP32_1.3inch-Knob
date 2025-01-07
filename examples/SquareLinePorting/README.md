@@ -1,6 +1,6 @@
-# LVGL Porting Example
+# SquareLine Porting Example
 
-The example demonstrates how to port LVGL(v8). And for RGB LCD, it can enable the avoid tearing function.
+The example demonstrates how to port SquareLine. And for RGB LCD, it can enable the avoid tearing function.
 
 ## How to Use
 
