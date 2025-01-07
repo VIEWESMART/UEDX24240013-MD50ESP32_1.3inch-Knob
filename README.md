@@ -98,18 +98,12 @@ UEDX24240013-MD50ESP32_1.3inch-Knob-Display is a development board with square 1
 | Example | Support IDE And Version| Description | Picture |
 | ------  | ------  | ------ | ------ | 
 | [ESP-IDF](./examples/ESP-IDF) | `[ESP-IDF V5.1/5.2/5.3]` | idf driver example code |  |
-| [PanelTest](./examples/PanelTest) |`[Arduino IDE][esp32_v2.0.14]` | Product factory original testing |  |
-| [Porting](./examples/Porting) | `[Arduino IDE][esp32_v3.0 above]` | LVGL example code |  |
-| [WiFiClock](./examples/WiFiClock) | `[Arduino IDE][esp32_v2.0.14]` | SquareLine porting example for Arduino |  |
-| [PlatformIO](./examples/PlatformIO) | `[Platformio IDE]` |  |  |
+| [SquareLinePorting](./examples/SquareLinePorting) | `[Arduino IDE][>= esp32_v3.0.7]` | SquareLine porting example for Arduino |  |
 
 
 | Firmware | Description | Picture |
 | ------  | ------  | ------ |
-| [ESP-IDF](./firmware/[T-Display-S3-AMOLED-1.43_V1.0][Original_Test]_firmware_V1.0.0.bin) | Original |  |
-| [PanelTest](./firmware/[T-Display-S3-AMOLED-1.43_V1.0][Light_Sleep_Wake_Up]_firmware_V1.0.0.bin) | Original |  |
-| [Porting](./firmware/[T-Display-S3-AMOLED-1.43_V1.0][Deep_Sleep_Wake_Up]_firmware_V1.0.0.bin) | Original |  |
-| [WiFiClock](./firmware/[T-Display-S3-AMOLED-1.75_V1.0][Original_Test_H0175Y003AM]_firmware_V1.0.2.bin) | Original |  |
+| [ESP-IDF]() | Original |  |
 
 ### PlatformIO
 1. Install[VisualStudioCode](https://code.visualstudio.com/Download),Choose installation based on your system type.
