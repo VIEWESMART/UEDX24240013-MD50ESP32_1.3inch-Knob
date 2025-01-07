@@ -1,8 +1,7 @@
 <h1 align = "center">UEDX24240013-MD50ESP32_1.3inch-Knob-Display</h1>
 
 <p align="center" width="90%">
-    <img src="image/1.3.jpg" alt="">
-    <img src="image/1.3_1.jpg" alt="">
+    <img src="image/1.3.png" alt="">
 </p>
 
 ## **English | [中文](./README_CN.md)**
