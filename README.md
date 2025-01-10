@@ -130,7 +130,7 @@ UEDX24240013-MD50ESP32_1.3inch-Knob-Display is a development board with square 1
 #### ESP32-C3
 | Setting                               | Value                                 |
 | :-------------------------------: | :-------------------------------: |
-| Board                                 | ESP32S3 Dev Module           |
+| Board                                 | ESP32C3 Dev Module           |
 | CPU Frequency                   | 160MHz (WiFi)                    |
 | Core Debug Level                | None                                 |
 | USB CDC On Boot                | Disabled                              |

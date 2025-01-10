@@ -39,7 +39,7 @@ Copy the [ui](./libraries/ui/) folder from `libraries` to [Arduino Library direc
 6. Navigate to the `Tools` menu in the Arduino IDE to choose a ESP board and configure its parameters.
      | Setting                               | Value                                 |
      | :-------------------------------: | :-------------------------------: |
-     | Board                                 | ESP32S3 Dev Module           |
+     | Board                                 | ESP32C3 Dev Module           |
      | CPU Frequency                   | 160MHz (WiFi)                    |
      | Core Debug Level                | None                                 |
      | USB CDC On Boot                | Disabled                              |
