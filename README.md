@@ -207,7 +207,7 @@
 [Encoder](information/EC110101R6D-HA1-011%20YBGW080.pdf)
 
 ## DependentLibraries
-* [ESP32_Display_Panel>0.2.1](https://github.com/esp-arduino-libs/ESP32_Display_Panel) (Please [download](./Libraries/ESP32_Display_Panel) the library first as the latest version has not been released yet)
+* [ESP32_Display_Panel](https://github.com/esp-arduino-libs/ESP32_Display_Panel) (Please [download](./Libraries/ESP32_Display_Panel) the library first as the latest version has not been released yet)
 * [ESP32_IO_Expander](https://github.com/esp-arduino-libs/ESP32_IO_Expander) (Please [download](./Libraries/ESP32_IO_Expander) the library first as the latest version has not been released yet)
 * [ESP32_Button](https://github.com/esp-arduino-libs/ESP32_Button)
 * [ESP32_Knob](https://github.com/esp-arduino-libs/ESP32_Knob)
