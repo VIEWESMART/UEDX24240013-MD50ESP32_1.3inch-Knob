@@ -30,19 +30,14 @@
 | UEDX24240013-MD50E   | ESP32c3 |   4M   | 400KB | [VIEWE Mall](https://viewedisplay.com/product/esp32-7-inch-800x480-rgb-ips-tft-display-touch-screen-arduino-lvgl-uart/)  |
 
 ## Directory
-- [Describe](#describe)
 - [Module](#module)
 - [PinOverview](#pinoverview)
+- [FPC PIN](#fpc-pin)
 - [QuickStart](#quickstart)
 - [FAQ](#faq)
 - [Schematic](#Schematic)
 - [Information](#information)
 - [DependentLibraries](#dependentlibraries)
-
-## Describe
-
-UEDX24240013-MD50ESP32_1.3inch-Knob-Display is a development board with square 1.3-inch 240 * 240 resolution display, based on ESP32C3, suitable for the development of microcontroller projects with display.
-
 
 ## Module
 
@@ -86,10 +81,29 @@ UEDX24240013-MD50ESP32_1.3inch-Knob-Display is a development board with square 1
 | PHA         | IO7       |
 | PHB         | IO6       |
 
-| USB/UART Pin  | ESP32C3 Pin|
+| USB  | ESP32C3 Pin|
 | :------------------: | :------------------:|
 | USB-DN         | IO18      |
 | USB-DP         | IO19      |
+
+| UART Pin  | ESP32C3 Pin|
+| :------------------: | :------------------:|
+|   UART0RXD     | IO20      |
+|   UART0TXD     | IO21      |
+
+## FPC PIN
+| FPC number | Adapter Pin  | ESP32C3 Pin|
+| :------------------: | :------------------: | :------------------:|
+|  1  |    5V      |    5V    |
+|  2  |    PB7     |  GPIO3   |
+|  3  |    GND     |    GND   |
+|  4  |    RX2     |    NC    |
+|  5  |    TX2     |    NC    |
+|  6  |    RX1     |    UART0RXD/IO20    |
+|  7  |    TX1     |    UART0TXD/IO21    |
+|  8  |     NC     |    CHIP-EN    |
+|  9  |   SK & D+   |   USB-DP/ IO19    |
+|  10 |   SD & D-   |    USB-DN/ IO18   |
 
 ## QuickStart
 
