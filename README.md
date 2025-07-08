@@ -107,60 +107,56 @@
 
 ## QuickStart
 
-### Examples Support
+### Software Framework Configuration
 
-| Example | Support IDE And Version| Description | Picture |
-| ------  | ------  | ------ | ------ | 
-| [ESP-IDF](./examples/ESP-IDF) | `[ESP-IDF V5.1/5.2/5.3]` | idf driver example code |  |
-| [SquareLinePorting](./examples/SquareLinePorting) | `[Arduino IDE][>= esp32_v3.0.7]` | SquareLine porting example for Arduino |  |
+| Support IDE | Version |
+| ------  | ------  |
+| `[ESP-IDF]` | `[V5.1/5.2/5.3]` |
+| `[Arduino IDE]` | `[esp32 >=v3.1.0]` | 
+| `[Platformio IDE]` |  |
+### ESP-IDF Framework ([Novice tutorial]())
+- Supported Versions: v5.1/5.2/5.3
+- Download the example code from the repository and compile/run it directly.
+- Repository Address: [examples](examples/esp_idf)
 
+### Arduino Framework ([Novice tutorial]())
+1. Install[Arduino](https://www.arduino.cc/en/software),Choose installation based on your system type.
+2. Install the ESP32 core: Search for and download `esp32`(by Espressif >= v3.1.0) in the `Board Manager`.
+3. Install the required libraries:
+    * Search and install `ESP32_Display_Panel` (v1.0.3). Select `Yes` for automatic dependency installation.
+    * Install the `LVGL` (v8.4.0) library. 
+4. Open the example: `ESP32_Display_Panel`-> `examples` -> `arduino` -> `gui` -> `lvgl_v8`.
+5. Configure the `esp_panel_board_supported_conf.h` file:
+    * 打开该文件的宏: `#define ESP_PANEL_BOARD_DEFAULT_USE_SUPPORTED  (0)`——> `#define ESP_PANEL_BOARD_DEFAULT_USE_SUPPORTED  (1)`
+    * Search development board `#define BOARD_VIEWE_UEDX24240013_MD50E`，And first comment to make it work. Note that do not turn on multiple development boards.
+6. Configure tool options :
+    #### ESP32-C3
+    | Setting                               | Value                                 |
+    | :-------------------------------: | :-------------------------------: |
+    | Board                                 | ESP32C3 Dev Module           |
+    | CPU Frequency                   | 160MHz (WiFi)                    |
+    | Core Debug Level                | None                                 |
+    | USB CDC On Boot                | Disabled                              |
+    | Erase All Flash Before Sketch Upload                | Disabled         |
+    | Flash Frequency                     | 80MHz                            |  
+    | Flash Mode                         | QIO                               |
+    | Flash Size                           | 4MB (32Mb)                      |
+    | JTAG Adapter                 | Disabled                                |
+    | Partition Scheme                | Huge APP |
+    | Upload Speed                     | 921600                               |
+
+   
+7. Select the correct port.
+8. Click "<kbd>[√](image/8.png)</kbd>" in the upper right corner to compile,If the compilation is correct, connect the microcontroller to the computer,Click "<kbd>[→](image/9.png)</kbd>" in the upper right corner to download.
+9. If the color is abnormal after burning, please open the `lv_conf.h`file in the example and modify the configuration:`#define LV_COLOR_16_SWAP 0`——>`#define LV_COLOR_16_SWAP 1`
+
+
+### firmware download
 
 | Firmware | Description | Picture |
 | ------  | ------  | ------ |
 | [ESP-IDF]() | Original |  |
 
-### PlatformIO
-1. Install[VisualStudioCode](https://code.visualstudio.com/Download),Choose installation based on your system type.
-
-2. Open the "Extension" section of the Visual Studio Code software sidebar(Alternatively, use "<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>" to open the extension),Search for the "PlatformIO IDE" extension and download it.
-
-3. During the installation of the extension, you can go to GitHub to download the program. You can download the main branch by clicking on the "<> Code" with green text.
-
-4. After the installation of the extension is completed, open the Explorer in the sidebar(Alternatively, use "<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd>" go open it),Click "Open Folder", find the project code you just downloaded (the entire folder), then find the PlatformIO folder and click "Add". At this point, the project file will be added to your workspace.
-
-5. Open the "platformio.ini" file in the project folder (PlatformIO will automatically open the "platformio.ini" file corresponding to the added folder). Under the "[platformio]" section, uncomment and select the example program you want to burn (it should start with "default_envs = xxx") Then click "<kbd>[√](image/4.png)</kbd>" in the bottom left corner to compile,If the compilation is correct, connect the microcontroller to the computer and click "<kbd>[→](image/5.png)</kbd>" in the bottom left corner to download the program.
-
-### Arduino
-1. Install[Arduino](https://www.arduino.cc/en/software),Choose installation based on your system type.
-
-2. Open the "example" directory within the project folder, select the example project folder, and open the file ending with ".ino" to open the Arduino IDE project workspace.
-
-3. Open the "Tools" menu at the top right -> Select "Board" -> "Board Manager." Find or search for "esp32" and download the board files from the author named "Espressif Systems." Then, go back to the "Board" menu and select the development board type under "ESP32 Arduino." The selected development board type should match the one specified in the "platformio.ini" file under the [env] section with the header "board = xxx." If there is no corresponding development board, you may need to manually add the development board from the "board" directory within your project folder.
-
-4. Open menu bar "[File](image/6.png)" -> "[Preferences](image/6.png)" ,Find "[Sketchbook location](image/7.png)"  here,copy and paste all library files and folders from the "libraries" folder in the project directory into the "libraries" folder in this directory.
-
-5. Select the correct settings in the Tools menu, as shown in the table below.
-
-#### ESP32-C3
-| Setting                               | Value                                 |
-| :-------------------------------: | :-------------------------------: |
-| Board                                 | ESP32C3 Dev Module           |
-| CPU Frequency                   | 160MHz (WiFi)                    |
-| Core Debug Level                | None                                 |
-| USB CDC On Boot                | Disabled                              |
-| Erase All Flash Before Sketch Upload                | Disabled                             |
-| Flash Frequency                     | 80MHz                               |  
-| Flash Mode                         | QIO                          |
-| Flash Size                           | 4MB (32Mb)                    |
-| JTAG Adapter                 | Disabled                               |
-| Partition Scheme                | Huge APP |
-| Upload Speed                     | 921600                               |
-
-6. Select the correct port.
-
-7. Click "<kbd>[√](image/8.png)</kbd>" in the upper right corner to compile,If the compilation is correct, connect the microcontroller to the computer,Click "<kbd>[→](image/9.png)</kbd>" in the upper right corner to download.
-
-### firmware download
 1. Open the project file "tools" and locate the ESP32 burning tool. Open it.
 
 2. Select the correct burning chip and burning method, then click "OK." As shown in the picture, follow steps 1->2->3->4->5 to burn the program. If the burning is not successful, press and hold the "BOOT-0" button and then download and burn again.
