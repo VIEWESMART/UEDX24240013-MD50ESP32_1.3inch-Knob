@@ -1,83 +1,25 @@
 /**
- * # LVGL Porting Example
- *
- * The example demonstrates how to port LVGL(v8). And for RGB LCD, it can enable the avoid tearing function.
- *
- * ## How to Use
- *
- * To use this example, please firstly install the following dependent libraries:
- *
- * - lvgl (>= v8.3.9, < v9)
- *
- * Then follow the steps below to configure:
- *
- * Follow the steps below to configure:
- *
- * 1. For **ESP32_Display_Panel**:
- *
- *     - Follow the [steps](https://github.com/esp-arduino-libs/ESP32_Display_Panel/blob/master/docs/How_To_Use.md#configuring-drivers) to configure drivers if needed.
- *     - If using a supported development board, follow the [steps](https://github.com/esp-arduino-libs/ESP32_Display_Panel/blob/master/docs/How_To_Use.md#using-supported-development-boards) to configure it.
- *     - If using a custom board, follow the [steps](https://github.com/esp-arduino-libs/ESP32_Display_Panel/blob/master/docs/How_To_Use.md#using-custom-development-boards) to configure it.
- *
- * 2. For **lvgl**:
- *
- *     - Follow the [steps](https://github.com/esp-arduino-libs/ESP32_Display_Panel/blob/master/docs/How_To_Use.md#configuring-lvgl) to add *lv_conf.h* file and change the configurations.
- *     - Modify the macros in the [lvgl_port_v8.h](./lvgl_port_v8.h) file to configure the LVGL porting parameters.
- *
- * 3. Navigate to the `Tools` menu in the Arduino IDE to choose a ESP board and configure its parameters. For supported
- *    boards, please refter to [Configuring Supported Development Boards](https://github.com/esp-arduino-libs/ESP32_Display_Panel/blob/master/docs/How_To_Use.md#configuring-supported-development-boards)
- * 4. Verify and upload the example to your ESP board.
- *
- * ## Serial Output
- *
- * ```bash
- * ...
- * LVGL porting example start
- * Initialize panel device
- * Initialize LVGL
- * Create UI
- * LVGL porting example end
- * IDLE loop
- * IDLE loop
- * ...
- * ```
- *
- * ## Troubleshooting
- *
- * Please check the [FAQ](https://github.com/esp-arduino-libs/ESP32_Display_Panel/blob/master/docs/FAQ.md) first to see if the same question exists. If not, please create a [Github issue](https://github.com/esp-arduino-libs/ESP32_Display_Panel/issues). We will get back to you as soon as possible.
- *
+ * Detailed usage of the example can be found in the [README.md](./README.md) file
  */
 
 #include <Arduino.h>
-#include <ESP_Panel_Library.h>
+#include <esp_display_panel.hpp>
 #include <lvgl.h>
-#include "lvgl_port_v8.h"
-
+#include "lvgl_v8_port.h"
+#include <ESP_Knob.h>
+#include <Button.h>
+#include <ui.h>
 /**
 /* To use the built-in examples and demos of LVGL uncomment the includes below respectively.
  * You also need to copy `lvgl/examples` to `lvgl/src/examples`. Similarly for the demos `lvgl/demos` to `lvgl/src/demos`.
  */
 // #include <demos/lv_demos.h>
 // #include <examples/lv_examples.h>
-#ifdef KNOB21
-#define GPIO_NUM_KNOB_PIN_A     6
-#define GPIO_NUM_KNOB_PIN_B     5
-#define GPIO_BUTTON_PIN         GPIO_NUM_0
-#endif
-#ifdef KNOB13
+
 #define GPIO_NUM_KNOB_PIN_A     7
 #define GPIO_NUM_KNOB_PIN_B     6
 #define GPIO_BUTTON_PIN         GPIO_NUM_9
-#endif
 
-
-
-/*Initialize UI start*/
-/*Initialize UI end*/
-#ifdef KNOB
-#include <ESP_Knob.h>
-#include <Button.h>
-#include <ui.h>
 
 ESP_Knob *knob;
 void onKnobLeftEventCallback(int count, void *usr_data)
@@ -112,43 +54,39 @@ static void LongPressStartCb(void *button_handle, void *usr_data) {
     LVGL_button_event((void*)BUTTON_LONG_PRESS_START);
     lvgl_port_unlock();
 }
-#endif
+
+using namespace esp_panel::drivers;
+using namespace esp_panel::board;
 
 void setup()
 {
-    String title = "LVGL porting example";
-#ifdef IM
-    pinMode(IM1, OUTPUT);
-    digitalWrite(IM1, HIGH);
-  #ifdef BOARD_VIEWE_ESP_S3_Touch_LCD_35_V2
-    pinMode(IM0, OUTPUT);
-    digitalWrite(IM0, HIGH);
-  #endif
-  #ifndef BOARD_VIEWE_ESP_S3_Touch_LCD_35_V2
-    pinMode(IM0, OUTPUT);
-    digitalWrite(IM0, LOW);
-  #endif
-#endif
-
     Serial.begin(115200);
-    Serial.println(title + " start");
 
-    Serial.println("Initialize panel device");
-    ESP_Panel *panel = new ESP_Panel();
-    panel->init();
-#if LVGL_PORT_AVOID_TEAR
-    // When avoid tearing function is enabled, configure the bus according to the LVGL configuration
-    ESP_PanelBus *lcd_bus = panel->getLcd()->getBus();
-#if ESP_PANEL_LCD_BUS_TYPE == ESP_PANEL_BUS_TYPE_RGB
-    static_cast<ESP_PanelBus_RGB *>(lcd_bus)->configRgbBounceBufferSize(LVGL_PORT_RGB_BOUNCE_BUFFER_SIZE);
-    static_cast<ESP_PanelBus_RGB *>(lcd_bus)->configRgbFrameBufferNumber(LVGL_PORT_DISP_BUFFER_NUM);
-#elif ESP_PANEL_LCD_BUS_TYPE == ESP_PANEL_BUS_TYPE_MIPI_DSI
-    static_cast<ESP_PanelBus_DSI *>(lcd_bus)->configDpiFrameBufferNumber(LVGL_PORT_DISP_BUFFER_NUM);
+    Serial.println("Initializing board");
+    Board *board = new Board();
+    board->init();
+#if LVGL_PORT_AVOID_TEARING_MODE
+    auto lcd = board->getLCD();
+    // When avoid tearing function is enabled, the frame buffer number should be set in the board driver
+    lcd->configFrameBufferNumber(LVGL_PORT_DISP_BUFFER_NUM);
+#if ESP_PANEL_DRIVERS_BUS_ENABLE_RGB && CONFIG_IDF_TARGET_ESP32S3
+    auto lcd_bus = lcd->getBus();
+    /**
+     * As the anti-tearing feature typically consumes more PSRAM bandwidth, for the ESP32-S3, we need to utilize the
+     * "bounce buffer" functionality to enhance the RGB data bandwidth.
+     * This feature will consume `bounce_buffer_size * bytes_per_pixel * 2` of SRAM memory.
+     */
+    if (lcd_bus->getBasicAttributes().type == ESP_PANEL_BUS_TYPE_RGB) {
+        static_cast<BusRGB *>(lcd_bus)->configRGB_BounceBufferSize(lcd->getFrameWidth() * 10);
+    }
 #endif
 #endif
-    panel->begin();
+    assert(board->begin());
 
-#ifdef KNOB
+    Serial.println("Initializing LVGL");
+    lvgl_port_init(board->getLCD(), board->getTouch());
+
+
     Serial.println("Initialize Knob device");
     knob = new ESP_Knob(GPIO_NUM_KNOB_PIN_A, GPIO_NUM_KNOB_PIN_B);
     knob->begin();
@@ -161,10 +99,6 @@ void setup()
     btn->attachSingleClickEventCb(&SingleClickCb, NULL);
     btn->attachDoubleClickEventCb(&DoubleClickCb, NULL);
     btn->attachLongPressStartEventCb(&LongPressStartCb, NULL);
-#endif
-
-    Serial.println("Initialize LVGL");
-    lvgl_port_init(panel->getLcd(), panel->getTouch());
 
     Serial.println("Create UI");
     /* Lock the mutex due to the LVGL APIs are not thread-safe */
@@ -197,8 +131,6 @@ void setup()
 
     /* Release the mutex */
     lvgl_port_unlock();
-
-    Serial.println(title + " end");
 }
 
 void loop()

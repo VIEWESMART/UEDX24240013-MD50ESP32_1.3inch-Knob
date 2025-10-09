@@ -1,5 +1,101 @@
 # ChangeLog
 
+## v1.0.3 - 2025-07-07
+
+### Enhancements:
+
+* feat(docs): provides an example of how to integrate this library into micropython by @tsteinruecken (#190)
+* feat(board): add board Waveshare:ESP32_S3_TOUCH_LCD_1_85_C @hegdi (#208)
+* feat(board & touch):add new supported viewe board and cst820 touch @VIEWESMART (#197)
+* feat(examples): show the usage of 'configVendorCommands()' function in esp_idf/lvgl_v8_port @martinroger (#217)
+
+### Bugfixes:
+
+* fix(examples): lvgl_port_v8 only poll touch screen if interrupt happened @hegdi (#209)
+* fix(examples): update lv_conf.h for Arduino IDE @davetheghost (#219)
+* fix(lcd): correct conditional compilation logic for ST7701 driver @SinKy-Yan (#223)
+* fix(board): correct the RGB IO mapping and backlight configuration for Jingcai:JC8048W550C @jompjomp (#210)
+
+## v1.0.2 - 2025-04-23
+
+### Enhancements:
+
+* feat(backlight): add PWM parameters configuration (#188)
+
+### Bugfixes:
+
+* fix(io_expander): remove incompatible header (#175)
+* fix(pre-commit): update the pre-commit script
+* fix(docs): update README
+* fix(conf): update comments of custom config file
+* fix(examples): enable CPU 240M and task WDT default in esp_idf/lvgl_v8_port
+* fix(lcd): fix ST7701 mirror issue
+
+## v1.0.1 - 2025-03-13
+
+### Enhancements:
+
+* feat(docs): add new FAQs
+
+### Bugfixes:
+
+* fix(touch): avoid reading the button state when disabled (#162)
+* fix(docs): correct and add descriptions
+* fix(board): resolve compilation error for SPI touch screens @tilordleo (#169)
+* fix(conf): correct comments in `esp_panel_board_custom_conf.h`
+
+## v1.0.0 - 2025-02-17
+
+### Breaking changes:
+
+* Rename configuration files to follow consistent naming convention:
+
+  * `ESP_Panel_Board_Custom.h` -> `esp_panel_board_custom_conf.h`
+  * `ESP_Panel_Board_Support.h` -> `esp_panel_board_supported_conf.h`
+  * `ESP_Panel_Conf.h` -> `esp_panel_drivers_conf.h`
+
+* Modernize codebase organization:
+
+  * Add namespaces for better code organization:
+
+    * `esp_panel::utils` - Utility functions and classes
+    * `esp_panel::drivers` - Device drivers
+    * `esp_panel::board` - Board driver
+
+  * Deprecate legacy `ESP_Panel*` class names in favor of namespaced versions
+
+* Add external dependency on `esp-lib-utils` library
+* Add support for dynamic board configuration loading at runtime
+
+### Enhancements:
+
+* feat(examples): update PlatformIO build_flags
+* feat(touch): add touch controller CHSC6540 @VIEWESMART (#128)
+* feat(board): add various viewe boards @VIEWESMART (#128)
+* feat(docs): update FAQ @VIEWESMART (#128)
+* feat(repo): refactor with using esp-lib-utils
+* feat(repo): support build on the MicroPython
+* feat(lcd): add LCD controller AXS15231B, HX8399, JD9165, ST7703, ST77903(RGB)
+* feat(touch): add touch controller AXS15231B, STMPE610, SPD2010
+* feat(backlight): add backlight device Custom, SwitchExpander
+* feat(board): add board Jingcai:JC8048W550C @lsroka76 (#132)
+
+### Bugfixes:
+
+* fix(touch): fix GT911 build warning
+* fix(log): fix kernel panic when checking the error @Kanzll (#144)
+* fix(version): fix minor number check @arduinomnomnom (#148)
+
+## v0.2.2 - 2025-01-09
+
+### Bugfixes:
+
+* fix(lcd): use 'delete[]' instead of 'delete' for C array shared pointer @FranciscoMoya (#142)
+* fix(lcd): load vendor config from bus
+* fix(board): fix GT911 init error for waveshare boards
+* fix(Kconfig): fix build error on esp-idf and incorrect descriptions @Cathgao (#133)
+* fix(examples): update PlatformIO lib & platform URLs
+
 ## v0.2.1 - 2024-11-14
 
 ### Enhancements:
@@ -26,7 +122,7 @@
 * feat(board): add support for Waveshare ESP32-S3-Touch-LCD-2.1 @martinroger (#117)
 * feat(board): add support for Espressif ESP32-P4-Function-EV-Board
 * feat(examples): add MIPI-DSI LCD
-* feat(examples): optimize anti-tear rotation in lvgl_port_v8
+* feat(examples): optimize anti-tear rotation in lvgl_v8_port
 * feat(ci): update for MIPI-DSI LCD
 * feat(test_apps): add MIPI-DSI LCD
 
@@ -63,7 +159,7 @@
 * fix(examples): fix WiFiClock log HTTP error code to serial console by @lboue (#97)
 * fix(examples): fix WiFiClock description
 * fix(gt911): allow to set the GT911 touch device address by @lboue (#86)
-* fix(conf): fix the issue that the `ESP_PANEL_EXPANDER_HOST_ID` flag is not working properly
+* fix(conf): fix the issue that the `ESP_PANEL_BOARD_EXPANDER_I2C_HOST_ID` flag is not working properly
 * fix(conf): fix `LCD Venbdor` typo (#92)
 
 ## v0.1.5 - 2024-07-09
@@ -74,12 +170,12 @@
 * feat(lvgl_port): set the lvgl task to run on the same core as the Arduino task by default
 * feat(board): increase the RGB pclk frequency to 26MHz for `ESP32_4848S040C_I_Y_3`
 * feat(board): add new board `elecrow: CROWPANEL_7_0` by @lboue (#71)
-* feat(conf): add connection comments for the RGB pins in *ESP_Panel_Board_Custom.h* (#58, #68)
+* feat(conf): add connection comments for the RGB pins in *esp_panel_board_custom.h* (#58, #68)
 
 ### Bugfixes:
 
 * fix(panel): init expander host with correct macro (#65)
-* fix(panel): don't reset the LCD if the bus is RGB bus and the `ESP_PANEL_LCD_FLAGS_AUTO_DEL_PANEL_IO` is enabled
+* fix(panel): don't reset the LCD if the bus is RGB bus and the `ESP_PANEL_BOARD_LCD_FLAGS_ENABLE_IO_MULTIPLEX` is enabled
 * fix(examples): fix lvgl port rotation issue when enabling avoid tearing by @NecroMancer05
 * fix(pre-commit): switch to Python 3 for pre-commit @lboue (#70)
 * fix(docs): specify lvgl version >= v8.3.9 and < 9

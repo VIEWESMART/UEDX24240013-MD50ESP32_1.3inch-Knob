@@ -150,19 +150,19 @@ void   LVGL_knob_event(void *event)
 
         
         if(index2==1)
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_1kaorou_png);
+        lv_img_set_src(ui_background, &ui_img_1kaorou_png);
         else if(index2==2)
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_2kaoji_png);
+        lv_img_set_src(ui_background, &ui_img_2kaoji_png);
         else if(index2==3)
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_3danta_png);
+        lv_img_set_src(ui_background, &ui_img_3danta_png);
         else if(index2==4)
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_4pisa_png);
+        lv_img_set_src(ui_background, &ui_img_4pisa_png);
         else if(index2==5)
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_5liupai_png);
+        lv_img_set_src(ui_background, &ui_img_5liupai_png);
         else if(index2==6)
         {
            
-            _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_6shutiao_png);
+            lv_img_set_src(ui_background, &ui_img_6shutiao_png);
         }
        
    
@@ -233,11 +233,11 @@ void ui_event_background(lv_event_t * e)
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_2kaoji_png);
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_3danta_png);
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_4pisa_png);
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_5liupai_png);
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_6shutiao_png);
+        lv_img_set_src(ui_background, &ui_img_2kaoji_png);
+        lv_img_set_src(ui_background, &ui_img_3danta_png);
+        lv_img_set_src(ui_background, &ui_img_4pisa_png);
+        lv_img_set_src(ui_background, &ui_img_5liupai_png);
+        lv_img_set_src(ui_background, &ui_img_6shutiao_png);
     }
 }
 
