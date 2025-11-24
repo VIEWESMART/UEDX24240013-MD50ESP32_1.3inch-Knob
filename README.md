@@ -127,7 +127,7 @@
     * Install the `LVGL` (v8.4.0) library. 
 4. Open the example: `ESP32_Display_Panel`-> `examples` -> `arduino` -> `gui` -> `lvgl_v8`.
 5. Configure the `esp_panel_board_supported_conf.h` file:
-    * 打开该文件的宏: `#define ESP_PANEL_BOARD_DEFAULT_USE_SUPPORTED  (0)`——> `#define ESP_PANEL_BOARD_DEFAULT_USE_SUPPORTED  (1)`
+    * Enable the macro for this file: `#define ESP_PANEL_BOARD_DEFAULT_USE_SUPPORTED  (0)`——> `#define ESP_PANEL_BOARD_DEFAULT_USE_SUPPORTED  (1)`
     * Search development board `#define BOARD_VIEWE_UEDX24240013_MD50E`，And first comment to make it work. Note that do not turn on multiple development boards.
 6. Configure tool options :
     #### ESP32-C3
@@ -142,7 +142,7 @@
     | Flash Mode                         | QIO                               |
     | Flash Size                           | 4MB (32Mb)                      |
     | JTAG Adapter                 | Disabled                                |
-    | Partition Scheme                | Huge APP |
+    | Partition Scheme                | Custom |
     | Upload Speed                     | 921600                               |
 
    
