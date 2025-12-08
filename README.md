@@ -137,12 +137,13 @@
 - select `3.1.0` and above,click the `INSTALL` button to install
   
 3. **Install Required Libraries**
-| 编号 | 库 | 版本 |
+   
+| ID | Library | Version |
 | :------------------: | :------------------: | :------------------: |
-|1|[ESP32_Display_Panel](https://github.com/esp-arduino-libs/ESP32_Display_Panel)|推荐最新版本|
-|2|[ESP32_Button](https://github.com/esp-arduino-libs/ESP32_Button)|推荐最新版本|
-|3|[ESP32_Knob](https://github.com/esp-arduino-libs/ESP32_Knob)|推荐最新版本|
-|4|[lvgl-8.4.0](https://lvgl.io)|8.4.0（暂不支持V9）|
+|1|[ESP32_Display_Panel](https://github.com/esp-arduino-libs/ESP32_Display_Panel)|The latest version is recommended|
+|2|[ESP32_Button](https://github.com/esp-arduino-libs/ESP32_Button)|The latest version is recommended|
+|3|[ESP32_Knob](https://github.com/esp-arduino-libs/ESP32_Knob)|The latest version is recommended|
+|4|[lvgl-8.4.0](https://lvgl.io)|8.4.0（V9 is not supported temporarily）|
 
   `ESP32_Display_Panel` and its dependencies are available in Arduino Library Manager. Install online:
 
