@@ -147,7 +147,7 @@
 > * LVGL仅在图形用户界面示例中是必需的
 > * 
 4. **选择并配置开发板**
-- 导航至 `Tools` > `Board` > `esp32` > `ESP32S3 Dev Module`
+- 导航至 `Tools` > `Board` > `esp32` > `ESP32C3 Dev Module`
 
 5. **打开示例**
 - 导航至 `File` > `Examples` > `ESP32_Display_Panel`
