@@ -195,19 +195,20 @@
 
 7. **配置工具选项：**
 #### ESP32-C3
-    | 设置 | 值 |
-    | :-------------------------------: | :-------------------------------: |
-    | Board                                 | ESP32C3 Dev Module           |
-    | CPU Frequency                   | 160MHz (WiFi)                    |
-    | Core Debug Level                | None                                 |
-    | USB CDC On Boot                | Disabled                              |
-    | Erase All Flash Before Sketch Upload                | Disabled         |
-    | Flash Frequency                     | 80MHz                            |  
-    | Flash Mode                         | QIO                               |
-    | Flash Size                           | 4MB (32Mb)                      |
-    | JTAG Adapter                 | Disabled                                |
-    | Partition Scheme                | Custom |
-    | Upload Speed                     | 921600                               |
+   
+| 设置 | 值 |
+| :-------------------------------: | :-------------------------------: |
+| Board                                 | ESP32C3 Dev Module           |
+| CPU Frequency                   | 160MHz (WiFi)                    |
+| Core Debug Level                | None                                 |
+| USB CDC On Boot                | Disabled                              |
+| Erase All Flash Before Sketch Upload                | Disabled         |
+| Flash Frequency                     | 80MHz                            |  
+| Flash Mode                         | QIO                               |
+| Flash Size                           | 4MB (32Mb)                      |
+| JTAG Adapter                 | Disabled                                |
+| Partition Scheme                | Custom |
+| Upload Speed                     | 921600                               |
 
    
 8. 选择正确的端口。
