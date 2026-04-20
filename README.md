@@ -6,18 +6,6 @@
 
 ## **English | [中文](./README_CN.md)**
 
-## Introduction to the Repository Directory
-
-```
-├── Libraries                 Library files required for the Arduino example  
-├── Schematic                 The circuit schematic of the product   
-├── examples                  Sample files, including the IDF framework and the Arduino framework
-├── image                     Product or sample project related images
-├── information               Product specifications, including the IC or peripherals involved
-├── tools                     Burn tool and image conversion tool
-└── README.md                 This is the file you are currently reading,Give a brief introduction to the product
-```
-
 ## Version iteration:
 |   Development board Version   |  Screen size   |   Resolution  | Update date        |Update description|
 | :-------------------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |:-------------------------------: |
@@ -28,15 +16,6 @@
 | Product                     | SOC           |  FLASH  |  RAM   | Link                   |
 | :------------------------: | :-----------: |:-------: | :---------: | :------------------: |
 | UEDX24240013-MD50E   | ESP32c3 |   4M   | 400KB | [VIEWE Mall](https://viewedisplay.com/product/esp32-7-inch-800x480-rgb-ips-tft-display-touch-screen-arduino-lvgl-uart/)  |
-
-## Directory
-- [Module](#module)
-- [PinOverview](#pinoverview)
-- [FPC PIN](#fpc-pin)
-- [QuickStart](#quickstart)
-- [FAQ](#faq)
-- [Schematic](#Schematic)
-- [Information](#information)
 
 ## Module
 
