@@ -88,7 +88,7 @@ static void flush_cb(struct _lv_disp_drv_t *drv, const lv_area_t *area, lv_color
     esp_lcd_panel_draw_bitmap(panel_handle, offsetx1, offsety1, offsetx2 + 1, offsety2 + 1, color_p);
 }
 
-static bool trans_done_cb(void *args)
+static bool trans_done_cb(void)
 {
     lv_disp_flush_ready(&disp_drv);
     return true;
